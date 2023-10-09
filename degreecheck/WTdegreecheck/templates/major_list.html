@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WTAMU DEGREE CHECKLIST</title>
+</head>
+<body>
+<h1>WTAMU DEGREE CHECKLIST</h1>
+<hr>
+
+<ul>
+{% for item in course_list %}
+<li>
+    <span>Major Code: </span> <span> {{ item.major.code}}</span>
+    <br>
+    <span>Degree: </span> <span> {{ item.major.degree}}</span>
+    <br>
+    <span>Major: </span> <span> {{ item.major.name}}</span>
+    <br>
+    <span>College: </span><span> {{ item.major.college}}</span>
+    <br>
+    <span>Department: </span><span> {{ item.major.dept}}</span>
+    <br>
+    <span>Core requirements: </span>
+    <br>
+    <ul>
+    {% for core in course_list.major.all %}
+    <li>{{ core }}</li>
+    {% endfor %}
+    </ul>
+</li>
+{% endfor %}
+
+
+</ul>
+
+
+
+</body>
+</html>
