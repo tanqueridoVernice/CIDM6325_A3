@@ -9,7 +9,7 @@
 <hr>
 
 <ul>
-{% for item in course_list %}
+{% for item in major_list %}
 <li>
     <span>Major Code: </span> <span> {{ item.major.code}}</span>
     <br>
@@ -23,18 +23,15 @@
     <br>
     <span>Core requirements: </span>
     <br>
-    <ul>
-    {% for core in course_list.major.all %}
-    <li>{{ core }}</li>
+    {% for core in major.core.all %}
+    {{ core }}
     {% endfor %}
-    </ul>
+    <br>
+
 </li>
 {% endfor %}
 
-
 </ul>
-
-
 
 </body>
 </html>
