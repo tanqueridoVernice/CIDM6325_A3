@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>WTAMU DEGREE CHECKLIST</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
+
+
 <h1>WTAMU DEGREE CHECKLIST</h1>
 <hr>
 
 <ul>
-{% for item in major_list %}
+{% for major in majors %}
 <li>
-    <span>Major Code: </span> <span> {{ item.major.code}}</span>
+    <span>Major Code: </span> <span> {{major.code}}</span>
     <br>
-    <span>Degree: </span> <span> {{ item.major.degree}}</span>
+    <span>Degree: </span> <span> {{major.degree}}</span>
     <br>
-    <span>Major: </span> <span> {{ item.major.name}}</span>
+    <span>Major: </span> <span> {{ major.name}}</span>
     <br>
-    <span>College: </span><span> {{ item.major.college}}</span>
+    <span>College: </span><span> {{major.college}}</span>
     <br>
-    <span>Department: </span><span> {{ item.major.dept}}</span>
+    <span>Department: </span><span> {{major.dept}}</span>
     <br>
     <span>Core requirements: </span>
     <br>
-    {% for core in major.core.all %}
-    {{ core }}
-    {% endfor %}
+    <span> <ul> {% for core in major.cores.all %}
+        <li>{{core}}</li>
+        {% endfor %} </ul>
+    </span>
+    <span>Major requirements: </span>
     <br>
-
+    <span> <ul> {% for req in major.course_req.all %}
+        <li>{{req}}</li>
+        {% endfor %} </ul>
+    </span>
 </li>
 {% endfor %}
 
 </ul>
-
-</body>
-</html>
+{% endblock %}

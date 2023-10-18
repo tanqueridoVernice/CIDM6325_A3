@@ -1,15 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<h1>WTAMU DEGREE CHECKLIST</h1>
+<hr>
+
+<ul>
 {% for major in majors %}
-    {{ major.code }}:
-    {% for p in major.cores.all %}
-        {{ p }}
+<li>
+    <span>Major Code: </span> <span> {{major.code}}</span>
+    <br>
+    <span>Degree: </span> <span> {{major.degree}}</span>
+    <br>
+    <span>Major: </span> <span> {{ major.name}}</span>
+    <br>
+    <span>College: </span><span> {{major.college}}</span>
+    <br>
+    <span>Department: </span><span> {{major.dept}}</span>
+    <br>
+    <span>Core requirements: </span>
+    <br>
+    <span> {% for core in major_core.cores.all %}
+        {{major.core}}
     {% endfor %}
+    </span>
+</li>
 {% endfor %}
-</body>
-</html>
+
+</ul>
+{% endblock %}

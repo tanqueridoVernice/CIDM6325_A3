@@ -52,7 +52,7 @@ class Major(models.Model):
     name = models.CharField(max_length=100, help_text="Major name")
     college = models.ForeignKey(College,on_delete=models.CASCADE, default=0)
     dept = models.ForeignKey(Department, on_delete=models.CASCADE, default = 0)
-    core = models.ManyToManyField(Core)
+    cores = models.ManyToManyField(Core)
     course_req = models.ManyToManyField(Course)
     def __str__(self):
         return self.name

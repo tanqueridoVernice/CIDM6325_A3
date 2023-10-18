@@ -20,5 +20,7 @@ import WTdegreecheck.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',WTdegreecheck.views.major_list, name='major_list,')
+    path('',WTdegreecheck.views.welcome_view, name='base,'),
+    path('majors/',WTdegreecheck.views.major_list, name='major_list,'),
+    path('courses/',WTdegreecheck.views.core_list, name='core_list,')
 ]
